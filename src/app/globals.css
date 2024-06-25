@@ -1,11 +1,16 @@
-:root{
-  --border-radius:12px;
-  --logo-color: #5D5D6D;
+:root {
+  --bg-primary: #F3F5F6;
   --bg-secundary: #F3F5F6;
+  --border-radius: 12px;
+  --logo-color: #5D5D6D;
   --text-dark: #737380;
+  --text-dark2: #41414D;
   --delete-color: #DE3838;
   --orage-low: #FFA585;
+  --price-dark: #09090A;
+  --shapes: #DCE2E5;
 }
+
 * {
   box-sizing: border-box;
   padding: 0;
