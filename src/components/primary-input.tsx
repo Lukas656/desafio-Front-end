@@ -3,29 +3,38 @@ import {styled} from "styled-components";
 import { SearchIcon } from "../icons/search-lcon";
 
 export const PrimaryInput = styled.input`
-    width: 352px;
+    width: 100%;
     border-radius: 8px;
     border: none;
     padding: 10px 16px;
     
     background: var(--bg-secundary);
-    
+    font-size: 12px;
     font-family: inherit;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
+    line-height: 20px;
     color: var(--text-dark);
+    
+    
+    @media(min-width: ${props => props.theme.desktopBreakpoint}){
+        font-size: 14px;
+        line-height: 22px;
+    }
 
 `
 const InputConteiner = styled.div`
     position: relative;
-    width: 352px;
+    width: 250px;
 
     svg{
         position: absolute;
         right: 20px;
         top: 50%;
         transform: translateY(-50%);
+    }
+
+    @media(min-width: ${props => props.theme.desktopBreakpoint}){
+        width: 352px;
     }
 `
 
