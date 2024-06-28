@@ -1,7 +1,7 @@
 "use client"
 import { BackButton } from "@/components/back-button";
 import { DefaultPagelayout } from "@/components/defaul-page-layout";
-import { useProduct } from "@/hooks/useProducts";
+import { useProduct } from "@/hooks/useProduct";
 import { ShopBagIcon } from "@/icons/ShopBagIcon";
 import { formatPrice } from "@/utils/format-price";
 import styled from "styled-components";
@@ -108,12 +108,29 @@ const ProductInfo = styled.div`
 export default function Product({ searchParams }: { searchParams: { id: string } }) {
     const { data } = useProduct(searchParams.id)
 
+    const handleAddToCard = () => {
+        let cartItems = localStorage.getItem('cart-itens')
+        if (cartItems) {
+            let cartItemsArray = JSON.parse(cartItems);
+
+            let existingProductIndex = cartItemsArray.findIndex((item: { id: string; }) => item.id === searchParams.id);
+            if (existingProductIndex != -1) {
+                cartItemsArray[existingProductIndex].quantity += 1;
+            } else {
+                cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id });
+            }
+            localStorage.setItem('cart-itens', JSON.stringify(cartItemsArray))
+        } else {
+            const newCart = [{ ...data, quantity: 1, id: searchParams.id }]
+            localStorage.setItem('cart-itens', JSON.stringify(newCart));
+        }
+    }
     return (
         <DefaultPagelayout>
             <Container>
                 <BackButton navigate="/" />
                 <section>
-                    <img src={data?.image_url}/>
+                    <img src={data?.image_url} />
                     <div>
                         <ProductInfo>
                             <span>{data?.category}</span>
@@ -125,8 +142,8 @@ export default function Product({ searchParams }: { searchParams: { id: string }
                                 <p>{data?.description}</p>
                             </div>
                         </ProductInfo>
-                        <button>
-                            <ShopBagIcon/>
+                        <button onClick={handleAddToCard}>
+                            <ShopBagIcon />
                             Adicionar ao carrinho
                         </button>
                     </div>

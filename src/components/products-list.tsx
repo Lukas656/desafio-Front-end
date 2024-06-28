@@ -1,5 +1,5 @@
 "use client"
-import { useProducts } from "@/hooks/useProtucts"
+import { useProducts } from "@/hooks/useProducts"
 import { ProductCard } from "./products-cards";
 import styled from "styled-components";
 
