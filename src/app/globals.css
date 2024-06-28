@@ -7,8 +7,9 @@
   --text-dark2: #41414D;
   --delete-color: #DE3838;
   --orage-low: #FFA585;
-  --price-dark: #09090A;
+  --price-dark: #000000;
   --shapes: #DCE2E5;
+  --secundary-text: #617480;
 }
 
 * {
