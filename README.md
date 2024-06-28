@@ -1,5 +1,7 @@
 # Desafio-Front-end
+![Captura de tela 2024-06-25 152127](https://github.com/Lukas656/desafio-Front-end/assets/72577273/ab34ad6d-36ff-4ca0-a089-d19a570884c6)
 Made with 💜 at Rocketseat
+
 Aula da Fernanda Kipper: https://youtu.be/fF-UWgeiELc?si=EOuaRdHcHgE1aky1
 
 ## Getting Started
