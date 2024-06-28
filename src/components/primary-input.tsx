@@ -8,7 +8,7 @@ export const PrimaryInput = styled.input`
     border: none;
     padding: 10px 16px;
     
-    background: var(--bg-secundary);
+    background: var(--bg-secondary);
     font-size: 12px;
     font-family: inherit;
     font-weight: 400;

@@ -1,5 +1,5 @@
 "use client"
-import { BackButton } from "@/components/back-button";
+import { BackBtn } from "@/components/back-button";
 import { DefaultPagelayout } from "@/components/defaul-page-layout";
 import { useProduct } from "@/hooks/useProduct";
 import { ShopBagIcon } from "@/icons/ShopBagIcon";
@@ -109,7 +109,7 @@ export default function Product({ searchParams }: { searchParams: { id: string }
     const { data } = useProduct(searchParams.id)
 
     const handleAddToCard = () => {
-        let cartItems = localStorage.getItem('cart-itens')
+        let cartItems = localStorage.getItem('cart-items')
         if (cartItems) {
             let cartItemsArray = JSON.parse(cartItems);
 
@@ -119,16 +119,16 @@ export default function Product({ searchParams }: { searchParams: { id: string }
             } else {
                 cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id });
             }
-            localStorage.setItem('cart-itens', JSON.stringify(cartItemsArray))
+            localStorage.setItem('cart-items', JSON.stringify(cartItemsArray))
         } else {
             const newCart = [{ ...data, quantity: 1, id: searchParams.id }]
-            localStorage.setItem('cart-itens', JSON.stringify(newCart));
+            localStorage.setItem('cart-items', JSON.stringify(newCart));
         }
     }
     return (
         <DefaultPagelayout>
             <Container>
-                <BackButton navigate="/" />
+                <BackBtn navigate="/" />
                 <section>
                     <img src={data?.image_url} />
                     <div>
