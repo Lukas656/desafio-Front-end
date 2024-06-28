@@ -8,7 +8,8 @@ interface DefaltProvidersprops {
     children: ReactNode
 }
 const theme = {
-    desktopBreakpoint: "768px"
+    desktopBreakpoint: "968px",
+    tabletBreakpoint: "768px",
 }
 export function DefaltProviders({ children }: DefaltProvidersprops) {
     const client = new QueryClient();

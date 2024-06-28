@@ -16,7 +16,7 @@ const FilterConteiner = styled.div`
         font-family: inherit;
         font-weight: 400;
         font-size: 14px;
-        line-height: 22px;
+        line-height: 18px;
         color: var(--text-dark);
 
         display: flex;
@@ -25,7 +25,7 @@ const FilterConteiner = styled.div`
     }
 
     svg{
-        margin-left: 16px;
+        margin-left: 10px;
     }
 
 
@@ -40,6 +40,7 @@ const PriorityFilter = styled.ul`
     list-style: none;
 
     top: 100%;
+    right: 8px;
 
     li{
         color: var(--text-dark);
