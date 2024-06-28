@@ -1,32 +1,29 @@
-import { ProductFeatchResponse } from "@/types/product";
+import { ProductsFeatchResponse } from "@/types/products-response";
 import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
+import { useFilter } from "./useFilter";
+import { mountQuery } from "@/utils/graphql-filters-type";
+import { useDeferredValue } from "react";
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL as string
 
-const fetcher = (productId: string): AxiosPromise<ProductFeatchResponse> => {
-    return axios.post(API_URL, { query: `
-       query{
-    Product(id: "${productId}"){
-    name
-    description
-    image_url
-    category
-    price_in_cents
-  }
-  
-} 
-
-    `})
+const fetcher = (query: string): AxiosPromise<ProductsFeatchResponse> => {
+    return axios.post(API_URL, { query })
 }
 
-export function useProduct(id: string){
-    const { data }= useQuery({
-        queryFn: ()=> fetcher(id),
-        queryKey: ['product', id],
-        enabled: !!id
-    });
+export function useProducts() {
+    const { type, priority, search } = useFilter()
+    const searchDeferred = useDeferredValue(search)
+    const query = mountQuery(type, priority)
+    const { data } = useQuery({
+        queryFn: () => fetcher(query),
+        queryKey: ['products', type, priority],
+        staleTime: 1000 * 60 * 1
+    })
+    const products = data?.data?.data.allProducts
+    const filtererdProducts = products?.filter(product => product.name.toLocaleLowerCase().includes(searchDeferred.toLocaleLowerCase()))
 
-    return{
-       data: data?.data?.data?.Product
+    return {
+        data: filtererdProducts
     }
 }
