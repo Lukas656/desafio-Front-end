@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "concurrently \"npm run dev:next\" \"npm run dev:api\"",
     "dev:next": "next dev",
-    "dev:api": "cd api && npm start"
+    "dev:api": "cd api && npm start",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.47.0",
@@ -16,6 +19,8 @@
     "styled-components": "^6.1.11"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
