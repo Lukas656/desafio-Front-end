@@ -8,10 +8,10 @@
     "start": "json-graphql-server db.js --p 3333"
   },
   "dependencies": {
-    "faker": "^5.5.3",
-    "json-graphql-server": "^2.2.3",
-    "concurrently": "^8.2.2",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@svgr/webpack": "^8.1.0"
+    "@svgr/webpack": "^8.1.0",
+    "concurrently": "^8.2.2",
+    "faker": "^5.5.3",
+    "json-graphql-server": "^2.2.3"
   }
 }
