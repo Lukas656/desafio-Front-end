@@ -3,13 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build": "next build",
+    "start": "next start",
     "dev": "concurrently \"npm run dev:next\" \"npm run dev:api\"",
     "dev:next": "next dev",
     "dev:api": "cd api && npm start",
-    "postinstall": "cd api && npm install",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "postinstall": "cd api && npm install"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.47.0",
